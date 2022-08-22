@@ -1,10 +1,10 @@
-<testsuites id="" name="" tests="3" failures="0" skipped="0" errors="0" time="17.978936999976636">
-<testsuite name="test.spec.ts" timestamp="1661183525026" hostname="" tests="3" failures="0" skipped="0" time="19.004" errors="0">
-<testcase name="Example tests with Playwright Should be able to click a button" classname="[chromium] › test.spec.ts:7:5 › Example tests with Playwright › Should be able to click a button" time="1.011">
+<testsuites id="" name="" tests="3" failures="0" skipped="0" errors="0" time="17.974069000005723">
+<testsuite name="test.spec.ts" timestamp="1661183902859" hostname="" tests="3" failures="0" skipped="0" time="18.973" errors="0">
+<testcase name="Example tests with Playwright Should be able to click a button" classname="[chromium] › test.spec.ts:7:5 › Example tests with Playwright › Should be able to click a button" time="1.008">
 </testcase>
-<testcase name="Example tests with Playwright Button should change it&apos;s text after input" classname="[chromium] › test.spec.ts:14:5 › Example tests with Playwright › Button should change it&apos;s text after input" time="1.043">
+<testcase name="Example tests with Playwright Button should change it&apos;s text after input" classname="[chromium] › test.spec.ts:14:5 › Example tests with Playwright › Button should change it&apos;s text after input" time="1.029">
 </testcase>
-<testcase name="Example tests with Playwright Should wait for an element to show" classname="[chromium] › test.spec.ts:21:5 › Example tests with Playwright › Should wait for an element to show" time="16.95">
+<testcase name="Example tests with Playwright Should wait for an element to show" classname="[chromium] › test.spec.ts:21:5 › Example tests with Playwright › Should wait for an element to show" time="16.936">
 </testcase>
 </testsuite>
 </testsuites>
