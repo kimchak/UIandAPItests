@@ -24,11 +24,11 @@ jobs:
       if: always()
       with:
         name: playwright-report
-        path: reports/
+        path: ~
         retention-days: 30
     - name: Upload results to Calliope
       run: curl -X POST
         -H "x-api-key:${{ secrets.API_KEY }}"
         -H "multipart/form-data"
-        -F "file[]=@reports/results.xml"
+        -F "file[]=@results.xml"
         "https://app.calliope.pro/api/v2/profile/${{ secrets.PROFILE_ID }}/import/junit
