@@ -24,11 +24,11 @@ jobs:
       if: always()
       with:
         name: junit-report
-        path:results/
+        path: results/
         retention-days: 30
       - name: Upload results to Calliope
           run: curl -X POST
             -H "x-api-key:${{ secrets.API_KEY }}"
             -H "multipart/form-data"
-            -F "file[]=@results/results.xml"
-                 "http://app.calliope.pro/api/v2/profile/${{ secrets.PROFILE_ID }}/import/junit"
+            -F "file[]=@output.json"
+            "https://app.calliope.pro/api/v2/profile/${{ secrets.PROFILE_ID }}/import/cucumber?tag[]=myos&tag[]=myplatform&tag[]=mybuild"
