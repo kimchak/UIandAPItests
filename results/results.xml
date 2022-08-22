@@ -1,0 +1,10 @@
+<testsuites id="" name="" tests="3" failures="0" skipped="0" errors="0" time="18.016761999994518">
+<testsuite name="test.spec.ts" timestamp="1661181189386" hostname="" tests="3" failures="0" skipped="0" time="19.134" errors="0">
+<testcase name="Example tests with Playwright Should be able to click a button" classname="[chromium] › test.spec.ts:7:5 › Example tests with Playwright › Should be able to click a button" time="1.049">
+</testcase>
+<testcase name="Example tests with Playwright Button should change it&apos;s text after input" classname="[chromium] › test.spec.ts:14:5 › Example tests with Playwright › Button should change it&apos;s text after input" time="1.089">
+</testcase>
+<testcase name="Example tests with Playwright Should wait for an element to show" classname="[chromium] › test.spec.ts:21:5 › Example tests with Playwright › Should wait for an element to show" time="16.996">
+</testcase>
+</testsuite>
+</testsuites>
