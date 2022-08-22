@@ -1,0 +1,29 @@
+name: postman-api-CRUD-tests
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+        mongodb-version: [4.2]
+  steps:
+    - name: Check out Git repositor
+      uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14.x'
+        registry-url: https://registry.npmjs.org/
+    - name: Install newman
+      run: npm install -g newman
+      run: newman run "./APItests/Pet Shop- Pet CRUD tests.postman_collection.json"
+    - uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: postman-results
+        path: results
+        retention-days: 30

@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "fe7bf16c-11e3-48a6-8c94-129419de27b3",
+		"name": "Pet Shop: Pet CRUD tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19836225"
+	},
+	"item": [
+		{
+			"name": "Add a new pet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Expect status to be ok', () => {",
+							"    pm.response.to.have.status(200)",
+							"    })",
+							"",
+							"pm.test('Expect something', () => {",
+							"const response = pm.response.json()",
+							"",
+							"pm.expect(response).to.not.be.empty",
+							"pm.expect(response.id).to.be.a('number')",
+							"console.log(response)",
+							"pm.collectionVariables.set(\"petId\", response.id)",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"{{$timestamp}}\",\n  \"category\": {\n    \"id\": 0,\n    \"name\": \"dogs\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"https://www.midwestcityok.org/parksrec/page/doggie-paddle\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 0,\n      \"name\": \"husky\"\n    }\n  ],\n  \"status\": \"available\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a pet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Pet's name is doggie\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name).to.eql('doggie');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{petId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{petId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update existing pet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Pet's name changed to chookie-chooks\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name).to.eql('chookie-chooks');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": {{petId}},\n  \"category\": {\n    \"id\": 0,\n    \"name\": \"dogs\"\n  },\n  \"name\": \"chookie-chooks\",\n  \"photoUrls\": [\n    \"https://www.midwestcityok.org/parksrec/page/doggie-paddle\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 0,\n      \"name\": \"husky\"\n    }\n  ],\n  \"status\": \"available\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete existing pet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Delete message contains pet's ID\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    const petId = String(pm.collectionVariables.get(\"petId\"));",
+							"    pm.expect(jsonData.message).to.equal(petId);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{petId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{petId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://petstore.swagger.io/v2/pet",
+			"type": "string"
+		},
+		{
+			"key": "petId",
+			"value": ""
+		},
+		{
+			"key": "petID",
+			"value": ""
+		},
+		{
+			"key": "pet",
+			"value": ""
+		},
+		{
+			"key": "lala",
+			"value": ""
+		}
+	]
+}
