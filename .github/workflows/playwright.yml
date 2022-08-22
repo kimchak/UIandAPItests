@@ -27,4 +27,4 @@ jobs:
         path: results
         retention-days: 30
     - name: Upload results to Calliope
-      run: curl -X POST -H "Content-Type:multipart/form-data" -H "x-api-key:${{ secrets.API_KEY }}" -F "ignore_unspecified_formatter=true" -F "file[]=@results/results.xml;type=text/xml" "https://app.calliope.pro/api/v2/profile/${{ secrets.PROFILE_ID }}/import/junit"
+      run: curl -X POST -H "Content-Type:multipart/form-data" -H "x-api-key:${{ secrets.API_KEY }}" -F "file[]=@results/results.xml;type=text/xml" "https://app.calliope.pro/api/v2/profile/${{ secrets.PROFILE_ID }}/import/junit"

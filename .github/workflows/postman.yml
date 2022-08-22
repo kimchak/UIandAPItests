@@ -18,11 +18,9 @@ jobs:
       run: npm install -g newman
     - name: Run newman tests
       run: newman run "./APItests/Pet Shop- Pet CRUD tests.postman_collection.json"
-    - name: Create folder for output
-      run: mkdir -p postmanOutput
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       if: always()
       with:
         name: postman-results
-        path: postmanOutput
+        path: results
         retention-days: 30
