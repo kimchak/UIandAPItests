@@ -4,14 +4,10 @@ on:
   push:
     branches: [ main, master ]
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
-        mongodb-version: [4.2]
-  steps:
-    - name: Check out Git repositor
+    steps:
+    - name: Check out Git repository
       uses: actions/checkout@v2
     - name: Set up Node.js
       uses: actions/setup-node@v2
@@ -20,6 +16,7 @@ jobs:
         registry-url: https://registry.npmjs.org/
     - name: Install newman
       run: npm install -g newman
+    - name: Run newman tests
       run: newman run "./APItests/Pet Shop- Pet CRUD tests.postman_collection.json"
     - uses: actions/upload-artifact@v2
       if: always()
