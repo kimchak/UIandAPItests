@@ -31,4 +31,4 @@ jobs:
         -H "Content-Type:text/xml"
         -H "x-api-key:${{ secrets.API_KEY }}" 
         -F "file[]=@results/results.xml"
-        "https://app.calliope.pro/api/v2/profile/${{ secrets.PROFILE_ID }}/import/junit"
+        "https://app.calliope.pro/api/v2/profile/${{ secrets.PROFILE_ID }}/import"
